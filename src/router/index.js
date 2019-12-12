@@ -4,6 +4,7 @@ import Login from "../views/Login"
 import Main from '../views/Main'
 import UserAdd from '../views/user/Add'
 import UserList from '../views/user/List'
+import NotFound from '../views/404'
 
 Vue.use(Router);
 export default new Router({
@@ -33,6 +34,15 @@ export default new Router({
           component: UserList
         }
       ]
+    },
+    {
+      path: '/home',
+      redirect: '/main'
+    },
+    {
+      // 404页
+      path: '*',
+      component: NotFound
     }
   ]
 });

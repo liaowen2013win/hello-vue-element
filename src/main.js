@@ -5,11 +5,16 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
+
+import axios from 'axios'
+// 原型链
+Vue.prototype.axios = axios;
+
 // 安装路由
 Vue.use(VueRouter);
 // 安装 ElementUI
 Vue.use(ElementUI);
-new Vue({
+let vm = new Vue({
   el: '#app',
   // 启用路由
   router,
