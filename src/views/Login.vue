@@ -9,7 +9,7 @@
         <el-input type="password" placeholder="请输入密码" v-model="form.password"/>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" v-on:click="onSubmit('loginForm')">登录</el-button>
+        <el-button type="primary" v-on:click="login('loginForm')">登录</el-button>
       </el-form-item>
     </el-form>
     <el-dialog
@@ -47,10 +47,13 @@
       }
     },
     methods: {
-      onSubmit(formName) {
+      login(formName) {
         // 为表单绑定验证功能
         this.$refs[formName].validate((valid) => {
           if (valid) {
+            // 设置用户登录成功
+            sessionStorage.setItem('isLogin', 'true');//此处只能放字符串
+            this.$store.dispatch('asyncUpdateUser', this.form);
             // 使用 vue-router 路由到指定页面，该方式称之为编程式导航
             this.$router.push("/main");
           } else {

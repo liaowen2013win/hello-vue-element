@@ -32,9 +32,15 @@
               <el-dropdown-item>查看</el-dropdown-item>
               <el-dropdown-item>新增</el-dropdown-item>
               <el-dropdown-item>删除</el-dropdown-item>
+              <el-dropdown-item>
+                <router-link to="/home">首页</router-link>
+              </el-dropdown-item>
+              <el-dropdown-item>
+                <router-link to="/logout">注销</router-link>
+              </el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
-          <span>王小虎</span>
+          <span>{{this.$store.getters.getUser.username}}</span>
         </el-header>
 
         <el-main>
